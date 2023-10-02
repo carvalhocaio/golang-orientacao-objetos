@@ -2,18 +2,23 @@ package main
 
 import "fmt"
 
+type ContaCorrente struct {
+	titular       string
+	numeroAgencia int
+	numeroConta   int
+	saldo         float64
+}
+
 func main() {
-	var titular string = "Martin"
-	var numeroAgencia int = 589
-	var numeroConta int = 123456
-	var saldo float64 = 125.5
+	contaMartin := ContaCorrente{
+		titular:       "Martin",
+		numeroAgencia: 555,
+		numeroConta:   112233,
+		saldo:         100.20,
+	}
 
-	fmt.Println(titular, numeroAgencia, numeroConta, saldo)
+	fmt.Println(contaMartin)
 
-	var titular2 string = "Hailey"
-	var numeroAgencia2 int = 555
-	var numeroConta2 int = 111333
-	var saldo2 float64 = 200
-
-	fmt.Println(titular2, numeroAgencia2, numeroConta2, saldo2)
+	contaHailey := ContaCorrente{"Hailey", 333, 111333, 200}
+	fmt.Println(contaHailey)
 }
