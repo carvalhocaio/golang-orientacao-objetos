@@ -10,15 +10,13 @@ type ContaCorrente struct {
 }
 
 func main() {
-	contaMartin := ContaCorrente{
-		titular:       "Martin",
-		numeroAgencia: 555,
-		numeroConta:   112233,
-		saldo:         100.20,
-	}
+	var contaMartin *ContaCorrente
+	contaMartin = new(ContaCorrente)
 
-	fmt.Println(contaMartin)
+	contaMartin.titular = "Martin"
+	contaMartin.numeroAgencia = 1
+	contaMartin.numeroConta = 123
+	contaMartin.saldo = 100
 
-	contaHailey := ContaCorrente{"Hailey", 333, 111333, 200}
-	fmt.Println(contaHailey)
+	fmt.Println(*contaMartin)
 }
