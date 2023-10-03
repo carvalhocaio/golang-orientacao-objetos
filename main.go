@@ -7,6 +7,14 @@ import (
 	"github.com/carvalhocaio/golang-orientacao-objetos/contas"
 )
 
+func PagarBoleto(conta verificarConta, valorBoleto float64) {
+	conta.Sacar(valorBoleto)
+}
+
+type verificarConta interface {
+	Sacar(valor float64) string
+}
+
 func main() {
 	clienteMartin := clientes.Titular{
 		Nome:      "Martin",
@@ -21,22 +29,7 @@ func main() {
 	}
 
 	fmt.Println(contaMartin)
-	fmt.Println(contaMartin.Depositar(120))
+	contaMartin.Depositar(100)
+	PagarBoleto(&contaMartin, 60)
 	fmt.Println(contaMartin.ObterSaldo())
-
-	clienteHailey := clientes.Titular{
-		Nome:      "Hailey",
-		CPF:       "01234567890",
-		Profissao: "Designer",
-	}
-
-	contaHailey := contas.ContaPoupanca{
-		Titular:       clienteHailey,
-		NumeroAgencia: 123,
-		NumeroConta:   123456,
-	}
-
-	fmt.Println(contaHailey)
-	fmt.Println(contaHailey.Depositar(200))
-	fmt.Println(contaHailey.ObterSaldo())
 }
