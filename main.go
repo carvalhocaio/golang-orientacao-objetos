@@ -23,4 +23,20 @@ func main() {
 	fmt.Println(contaMartin)
 	fmt.Println(contaMartin.Depositar(120))
 	fmt.Println(contaMartin.ObterSaldo())
+
+	clienteHailey := clientes.Titular{
+		Nome:      "Hailey",
+		CPF:       "01234567890",
+		Profissao: "Designer",
+	}
+
+	contaHailey := contas.ContaPoupanca{
+		Titular:       clienteHailey,
+		NumeroAgencia: 123,
+		NumeroConta:   123456,
+	}
+
+	fmt.Println(contaHailey)
+	fmt.Println(contaHailey.Depositar(200))
+	fmt.Println(contaHailey.ObterSaldo())
 }
